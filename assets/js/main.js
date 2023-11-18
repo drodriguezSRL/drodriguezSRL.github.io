@@ -96,6 +96,7 @@
 	// Main Sections: Two.
 
 		// Lightbox gallery.
+		/*
 			$window.on('load', function() {
 
 				$('#two').poptrox({
@@ -112,6 +113,6 @@
 					windowMargin: (breakpoints.active('<=small') ? 0 : 50)
 				});
 
-			});
+			}); */
 
 })(jQuery);

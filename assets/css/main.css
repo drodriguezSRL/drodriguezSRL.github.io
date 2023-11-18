@@ -113,6 +113,7 @@ input, select, textarea {
 		border-bottom: dotted 1px;
 		color: #49bf9d;
 		text-decoration: none;
+		font-weight: normal;
 	}
 
 		a:hover {
@@ -2066,7 +2067,7 @@ input, select, textarea {
 		}
 
 			.image.thumb:after {
-				-moz-transition: opacity 0.2s ease-in-out;
+				moz-transition: opacity 0.2s ease-in-out;
 				-webkit-transition: opacity 0.2s ease-in-out;
 				-ms-transition: opacity 0.2s ease-in-out;
 				transition: opacity 0.2s ease-in-out;
@@ -2593,7 +2594,7 @@ input, select, textarea {
 		justify-content: space-between;
 		background-color: #1f1815;
 		background-attachment: scroll,								scroll;
-		background-image: url("images/overlay.png"), url("../../images/bg.jpg");
+		background-image: url("images/overlay.png"), url("../../images/ex1_lightson.jpg");
 		background-position: top left,							top left;
 		background-repeat: repeat,								no-repeat;
 		background-size: auto,								150%;
