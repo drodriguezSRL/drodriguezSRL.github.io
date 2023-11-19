@@ -2118,7 +2118,7 @@ input, select, textarea {
 		}
 
 		.image.left, .image.right {
-			max-width: 40%;
+			max-width: 30%;
 		}
 
 			.image.left img, .image.right img {
@@ -2136,7 +2136,7 @@ input, select, textarea {
 			}
 
 		.image.avatar {
-			border-radius: 100%;
+			border-radius: 20%;
 		}
 
 			.image.avatar:before {
@@ -2144,7 +2144,7 @@ input, select, textarea {
 			}
 
 			.image.avatar img {
-				border-radius: 100%;
+				border-radius: 20%;
 				width: 100%;
 			}
 
@@ -2553,6 +2553,31 @@ input, select, textarea {
 			cursor: default;
 		}
 
+		input[type="submit"].secondary,
+			input[type="reset"].secondary,
+			input[type="button"].secondary,
+			.button.secondary {
+				background-color: #4a4e50;
+				border-color: #4a4e50;
+				color: #ffffff !important;
+			}
+	
+				input[type="submit"].secondary:hover,
+				input[type="reset"].secondary:hover,
+				input[type="button"].secondary:hover,
+				.button.secondary:hover {
+					background-color: #323436;
+					border-color: #323436;
+				}
+	
+				input[type="submit"].secondary:active,
+				input[type="reset"].secondary:active,
+				input[type="button"].secondary:active,
+				.button.secondary:active {
+					background-color: #414242;
+					border-color: #414242;
+				}
+
 /* Work Item */
 
 	.work-item {
@@ -2595,7 +2620,7 @@ input, select, textarea {
 		justify-content: space-between;
 		background-color: #1f1815;
 		background-attachment: scroll,								scroll;
-		background-image: url("images/overlay.png"), url("../../images/ex1_lightson.jpg");
+		background-image: url("images/overlay.png"), url("../../images/ex1_lightson_bnw.jpg");
 		background-position: top left,							top left;
 		background-repeat: repeat,								no-repeat;
 		background-size: auto,								150%;
@@ -2635,7 +2660,7 @@ input, select, textarea {
 
 		#header h1 {
 			color: rgba(255, 255, 255, 0.5);
-			font-size: 1.35em;
+			font-size: 1.7em;/*1.35em;*/
 			line-height: 1.75em;
 			margin: 0;
 		}
