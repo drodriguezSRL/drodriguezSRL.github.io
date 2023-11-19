@@ -2068,7 +2068,7 @@ input, select, textarea {
 		}
 
 			.image.thumb:after {
-				moz-transition: opacity 0.2s ease-in-out;
+				-moz-transition: opacity 0.2s ease-in-out;
 				-webkit-transition: opacity 0.2s ease-in-out;
 				-ms-transition: opacity 0.2s ease-in-out;
 				transition: opacity 0.2s ease-in-out;
@@ -2099,6 +2099,115 @@ input, select, textarea {
 				background: url("images/overlay.png"), url("images/overlay.png");
 				opacity: 1.0;
 			}
+
+			.image.fast {
+				text-align: center;
+			}
+				.image.fast:after {
+					-moz-transition: opacity 0.2s ease-in-out;
+					-webkit-transition: opacity 0.2s ease-in-out;
+					-ms-transition: opacity 0.2s ease-in-out;
+					transition: opacity 0.2s ease-in-out;
+					border-radius: 0.35em;
+					border: solid 3px rgba(255, 255, 255, 0);
+					color: #fff;
+					content: 'Fast Lunar Mobility';
+					display: inline-block;
+					font-size: 1.2em;
+					font-weight: 400;
+					left: 50%;
+					line-height: 2.25em;
+					margin: -1.25em 0 0 -6.3em;
+					opacity: 0;
+					padding: 0 1.5em;
+					position: absolute;
+					text-align: center;
+					text-decoration: none;
+					top: 50%;
+					white-space: nowrap;
+				}
+	
+				.image.fast:hover:after {
+					opacity: 1.0;
+				}
+	
+				.image.fast:hover:before {
+					background: url("images/overlay.png"), url("images/overlay.png");
+					opacity: 1.0;
+				}
+
+			.image.quantum {
+				text-align: center;
+			}
+				.image.quantum:after {
+					-moz-transition: opacity 0.2s ease-in-out;
+					-webkit-transition: opacity 0.2s ease-in-out;
+					-ms-transition: opacity 0.2s ease-in-out;
+					transition: opacity 0.2s ease-in-out;
+					border-radius: 0.35em;
+					border: solid 3px rgba(255, 255, 255, 0.0);
+					color: #fff;
+					content: 'Quantum-Driven Autonomous Navigation';
+					display: inline-block;
+					font-size: 1.2em;
+					font-weight: 400;
+					left: 50%;
+					line-height: 1.25em;
+					width: 12.3em;
+					margin: -1.25em 0 0 -6.3em;
+					opacity: 0;
+					padding: 0 0;
+					position: absolute;
+					text-align: center;
+					text-decoration: none;
+					top: 50%;
+					white-space: wrap;
+				}
+	
+				.image.quantum:hover:after {
+					opacity: 1.0;
+				}
+	
+				.image.quantum:hover:before {
+					background: url("images/overlay.png"), url("images/overlay.png");
+					opacity: 1.0;
+				}
+
+				.image.spad {
+					text-align: center;
+				}
+					.image.spad:after {
+						-moz-transition: opacity 0.2s ease-in-out;
+						-webkit-transition: opacity 0.2s ease-in-out;
+						-ms-transition: opacity 0.2s ease-in-out;
+						transition: opacity 0.2s ease-in-out;
+						border-radius: 0.35em;
+						border: solid 3px rgba(255, 255, 255, 0.0);
+						color: #fff;
+						content: 'Single-Photon Vision';
+						display: inline-block;
+						font-size: 1.2em;
+						font-weight: 400;
+						left: 50%;
+						line-height: 2.25em;
+						margin: -1.25em 0 0 -6.3em;
+						opacity: 0;
+						padding: 0 1.5em;
+						position: absolute;
+						text-align: center;
+						text-decoration: none;
+						top: 50%;
+						white-space: nowrap;
+					}
+		
+					.image.spad:hover:after {
+						opacity: 1.0;
+					}
+		
+					.image.spad:hover:before {
+						background: url("images/overlay.png"), url("images/overlay.png");
+						opacity: 1.0;
+					}
 
 		.image img {
 			border-radius: 0.35em;
@@ -2209,7 +2318,7 @@ input, select, textarea {
 			ul.icons li .icon:before {
 				font-size: 1.5em;
 			}
-
+			
 /* Labeled Icons */
 
 	ul.labeled-icons {
@@ -2627,7 +2736,7 @@ input, select, textarea {
 		color: rgba(255, 255, 255, 0.5);
 		height: 100%;
 		left: 0;
-		padding: 8em 4em;
+		padding: 5em 4em;
 		position: fixed;
 		text-align: right;
 		top: 0;
