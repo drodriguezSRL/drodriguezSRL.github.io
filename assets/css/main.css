@@ -2662,27 +2662,53 @@ input, select, textarea {
 			cursor: default;
 		}
 
-		input[type="submit"].secondary,
-			input[type="reset"].secondary,
-			input[type="button"].secondary,
-			.button.secondary {
+		input[type="submit"].video,
+			input[type="reset"].video,
+			input[type="button"].video,
+			.button.video {
+				background-color: #b2b2b2;
+				border-color: #b2b2b2;
+				color: #132a13 !important;
+			}
+	
+				input[type="submit"].video:hover,
+				input[type="reset"].video:hover,
+				input[type="button"].video:hover,
+				.button.video:hover {
+					background-color: transparent;
+					border-color: #49bf9d;
+					color: #49bf9d !important
+				}
+	
+				input[type="submit"].video:active,
+				input[type="reset"].video:active,
+				input[type="button"].video:active,
+				.button.video:active {
+					background-color: transparent;
+					border-color: #49bf9d;
+				}
+		
+		input[type="submit"].arxiv,
+			input[type="reset"].arxiv,
+			input[type="button"].arxiv,
+			.button.arxiv {
 				background-color: #4a4e50;
 				border-color: #4a4e50;
 				color: #ffffff !important;
 			}
 	
-				input[type="submit"].secondary:hover,
-				input[type="reset"].secondary:hover,
-				input[type="button"].secondary:hover,
-				.button.secondary:hover {
+				input[type="submit"].arxiv:hover,
+				input[type="reset"].arxiv:hover,
+				input[type="button"].arxiv:hover,
+				.button.arxiv:hover {
 					background-color: #323436;
 					border-color: #323436;
 				}
 	
-				input[type="submit"].secondary:active,
-				input[type="reset"].secondary:active,
-				input[type="button"].secondary:active,
-				.button.secondary:active {
+				input[type="submit"].arxiv:active,
+				input[type="reset"].arxiv:active,
+				input[type="button"].arxiv:active,
+				.button.arxiv:active {
 					background-color: #414242;
 					border-color: #414242;
 				}
