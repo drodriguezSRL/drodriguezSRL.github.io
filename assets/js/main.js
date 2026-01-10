@@ -155,9 +155,19 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (shown) positionMenu();
 	});
 
-	// Close menu when clicking a menu link (also allow anchor navigation)
-	menu.addEventListener('click', function (e) {
-		if (e.target.tagName === 'A') {
+// Close menu when clicking a menu link and smooth-scroll to section
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      const href = e.target.getAttribute('href');
+      // Skip smooth scroll for external links or home page link
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
 			menu.classList.remove('visible');
 			menu.setAttribute('aria-hidden', 'true');
 		}

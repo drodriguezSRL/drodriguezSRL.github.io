@@ -2851,7 +2851,7 @@ input, select, textarea {
 #header-menu {
     position: absolute;
     /* align close to header padding (header uses padding: 5em 4em) */
-    right: 4em;
+    right: 0em; /* aligns with right edge of header */
     top: 3.5rem; /* appears below the h1 */
     background: rgba(0,0,0,0.45);
     backdrop-filter: blur(6px);
