@@ -116,3 +116,78 @@
 			}); */
 
 })(jQuery);
+
+document.addEventListener('DOMContentLoaded', function () {
+	const header = document.getElementById('header');
+	const menu = document.getElementById('header-menu');
+	const toggleLink = header.querySelector('h1 a');
+	const headerInner = header.querySelector('.inner');
+	const h1s = header.querySelectorAll('h1');
+	const bigH1 = (h1s.length > 1) ? h1s[1] : h1s[0];
+
+	if (!menu || !toggleLink || !headerInner || !bigH1) return;
+
+	// Position menu so it appears just below the large header h1 (keeps mobile behavior)
+	function positionMenu() {
+		const style = window.getComputedStyle(menu);
+		if (style.position === 'absolute') {
+			const innerRect = headerInner.getBoundingClientRect();
+			const h1Rect = bigH1.getBoundingClientRect();
+			// top relative to headerInner
+			const gap = 8; // px gap between h1 and menu
+			const top = Math.round(h1Rect.bottom - innerRect.top + gap);
+			menu.style.top = top + 'px';
+			// keep right defined by CSS (usually right: 4em). If needed, could compute horizontal offset here.
+		} else {
+			// mobile / relative flow: clear inline positioning
+			menu.style.top = '';
+		}
+	}
+
+	// Initial position and on resize
+	positionMenu();
+	window.addEventListener('resize', positionMenu);
+
+	toggleLink.addEventListener('click', function (e) {
+		e.preventDefault();
+		const shown = menu.classList.toggle('visible');
+		menu.setAttribute('aria-hidden', !shown);
+		if (shown) positionMenu();
+	});
+
+// Close menu when clicking a menu link and smooth-scroll to section
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      const href = e.target.getAttribute('href');
+      // Skip smooth scroll for external links or home page link
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+			menu.classList.remove('visible');
+			menu.setAttribute('aria-hidden', 'true');
+		}
+	});
+
+	// Close when clicking outside
+	document.addEventListener('click', function (e) {
+		if (!menu.contains(e.target) && !toggleLink.contains(e.target)) {
+			if (menu.classList.contains('visible')) {
+				menu.classList.remove('visible');
+				menu.setAttribute('aria-hidden', 'true');
+			}
+		}
+	});
+
+	// Optional: close on ESC
+	document.addEventListener('keydown', function (e) {
+		if (e.key === 'Escape' && menu.classList.contains('visible')) {
+			menu.classList.remove('visible');
+			menu.setAttribute('aria-hidden', 'true');
+		}
+	});
+});
