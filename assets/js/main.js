@@ -30,8 +30,18 @@
 			xsmall:  [ null,      '480px'  ],
 		});
 
+	// Run a callback on window load, or immediately if it has already fired
+	// (this script is now loaded dynamically after the header/footer includes,
+	// so 'load' may have already passed by the time it runs).
+		function onWindowLoad(fn) {
+			if (document.readyState === 'complete')
+				fn();
+			else
+				$window.on('load', fn);
+		}
+
 	// Play initial animations on page load.
-		$window.on('load', function() {
+		onWindowLoad(function() {
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
 			}, 100);
@@ -87,37 +97,18 @@
 
 				});
 
-				$window.on('load', function() {
+				onWindowLoad(function() {
 					$window.triggerHandler('scroll');
 				});
 
 			}
 
-	// Main Sections: Two.
-
-		// Lightbox gallery.
-		/*
-			$window.on('load', function() {
-
-				$('#two').poptrox({
-					caption: function($a) { return $a.next('h3').text(); },
-					overlayColor: '#2c2c2c',
-					overlayOpacity: 0.85,
-					popupCloserText: '',
-					popupLoaderText: '',
-					selector: '.work-item a.image',
-					usePopupCaption: true,
-					usePopupDefaultStyling: false,
-					usePopupEasyClose: false,
-					usePopupNav: true,
-					windowMargin: (breakpoints.active('<=small') ? 0 : 50)
-				});
-
-			}); */
-
 })(jQuery);
 
-document.addEventListener('DOMContentLoaded', function () {
+// This script now always loads after the header/footer partials are injected
+// (see assets/js/include.js), so it can run immediately rather than waiting
+// on DOMContentLoaded, which will typically have already fired by this point.
+(function () {
 	const header = document.getElementById('header');
 	const menu = document.getElementById('header-menu');
 	const toggleLink = header.querySelector('h1 a');
@@ -159,13 +150,17 @@ document.addEventListener('DOMContentLoaded', function () {
   menu.addEventListener('click', function (e) {
     if (e.target.tagName === 'A') {
       const href = e.target.getAttribute('href');
-      // Skip smooth scroll for external links or home page link
-      if (href && href.startsWith('#')) {
-        e.preventDefault();
-        const targetId = href.substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Smooth-scroll only when the link's target is this same page (bare "#..." or "/index.html#..." while already on index.html)
+      if (href && href.includes('#')) {
+        const [path, hash] = href.split('#');
+        const onSamePage = !path || path === window.location.pathname ||
+          (path === '/index.html' && (window.location.pathname === '/' || window.location.pathname === '/index.html'));
+        if (onSamePage && hash) {
+          e.preventDefault();
+          const targetElement = document.getElementById(hash);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         }
       }
 			menu.classList.remove('visible');
@@ -190,4 +185,4 @@ document.addEventListener('DOMContentLoaded', function () {
 			menu.setAttribute('aria-hidden', 'true');
 		}
 	});
-});
+})();
